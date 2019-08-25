@@ -75,8 +75,8 @@ void print_zip_at_file(FILE* normal_file, FILE* zip_File, unsigned char home[][2
   rewind(zip_File);
   fwrite(&size_trash, sizeof(unsigned char), 1, zip_File); // Write the size of trash on file
   fwrite(&tree_size_to_file, sizeof(unsigned char), 1, zip_File); // Write the size of Huffman tree on file
-  size_trash = (8 - index) >> 5;
-  (*trash) = size_trash;
+  
+  (*trash) = size_trash >> 5;
   
   return ;
 }
