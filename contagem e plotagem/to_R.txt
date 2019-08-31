@@ -1,0 +1,5 @@
+plot<-read.table("plot.txt", header = T)
+attach(plot)
+par(mfrow=c(1,2))
+plot (numero, comp_lista, type="l", main = "Lista")
+plot (numero, comp_arvore, type="l", main = "Arvore")
