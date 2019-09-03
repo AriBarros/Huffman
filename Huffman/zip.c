@@ -78,17 +78,21 @@ void print_zip_at_file(FILE* normal_file, FILE* zip_File, unsigned char home[][2
 
 void put_header_in_file(int *header, FILE *zip_file) {
   unsigned char ch = 0;
-  int count_byte = 7, index = 0;
+  //int count_byte = 7, index = 0;
+  int count_byte = 0, index = 0;
 
   for (index = 0; index < 16; index++) {
     if (header[index]) {
       ch = set_bit(ch, count_byte);
     }
 
-    count_byte--;
+    //count_byte--;
+    count_byte++;
 
-    if (count_byte < 0) {
-      count_byte = 7;
+    //if (count_byte < 0) {
+    if (count_byte == 8) {
+      //count_byte = 7;
+      count_byte = 0;
       fwrite(&ch, sizeof(unsigned char), 1, zip_file);
       ch = 0;
     }
@@ -166,7 +170,7 @@ void zip_file(){
   unsigned char current[Max_string]; // Array keep temp ways
 
   start_table(home); //begin the table with no way yet
-  create_tree_table(home,current,tree,0); // Create a hash about Huffman Tree
+  create_tree_table(home,current,tree,0);
 
   int* size_tree = (int*) malloc(sizeof(int)); //Pointer to get tree_size
   int* trash = (int*) malloc(sizeof(int));

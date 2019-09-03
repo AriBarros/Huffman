@@ -105,15 +105,15 @@ void unzip_file(){
   fread(&size_tree, sizeof(unsigned char), 1, zip_file);
   printf("\n%d\n", size_trash);
 
-  for (int i = 0; i <= 2; i++)
+  /*for (int i = 0; i <= 2; i++)
   {
     if(is_bit_i_set(size_trash, i))
     {
       ch_help = set_bit(ch_help,i);
     }
-  }
+  }*/
   
-  ch_help = ch_help >> 5;
+  ch_help = size_trash >> 5;
 
   printf("\ntrash1: %d\n", ch_help);
   trash_temp = ch_help;
