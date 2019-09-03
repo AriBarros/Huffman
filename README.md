@@ -1,4 +1,4 @@
-# Huffman
+# P2 Project
 Data Structure project
 
 Project developed by: Adrian Vieira, Allan Douglas, Aristoteles Peixoto, João da Silva Muniz and Mateus Monteiro.
