@@ -103,7 +103,7 @@ void unzip_file(){
 
   fread(&size_trash, sizeof(unsigned char), 1, zip_file);
   fread(&size_tree, sizeof(unsigned char), 1, zip_file);
-  printf("\n%d\n", size_trash);
+  //printf("\n%d\n", size_trash);
 
   /*for (int i = 0; i <= 2; i++)
   {
@@ -115,9 +115,9 @@ void unzip_file(){
   
   ch_help = size_trash >> 5;
 
-  printf("\ntrash1: %d\n", ch_help);
+  //printf("\ntrash1: %d\n", ch_help);
   trash_temp = ch_help;
-  printf("\ntrash2: %d\n", trash_temp);
+  //printf("\ntrash2: %d\n", trash_temp);
 
   Huffman* tree = (Huffman*)create_tree_node();
   tree = (Huffman*)comeback_tree(zip_file, tree);

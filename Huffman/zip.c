@@ -188,9 +188,9 @@ void zip_file(){
 
   put_header_in_file(header, zip_file);
   
-  for(i = 0; i < 16; i++){
+  /*for(i = 0; i < 16; i++){
     printf(" [%d] ", header[i]);
-  }
+  }*/
 
   printf("\n %s created!\n", zip_file_name);
   printf("\n");
