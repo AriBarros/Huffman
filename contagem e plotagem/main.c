@@ -44,8 +44,8 @@ int main ()
 
 	for(i = 0; i < lim; i++)
 	{
-		comp_list = search_list(list, i);
-		comp_tree = search_tree(bt, i);
+		comp_list = search_list(list, i); //Número de comparações da lista
+		comp_tree = search_tree(bt, i); //Número de comparações da árvore
 		aux_list[i] = comp_list;
 		aux_tree[i] = comp_tree;
 	}
