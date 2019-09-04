@@ -78,7 +78,6 @@ void print_zip_at_file(FILE* normal_file, FILE* zip_File, unsigned char home[][2
 
 void put_header_in_file(int *header, FILE *zip_file) {
   unsigned char ch = 0;
-  //int count_byte = 7, index = 0;
   int count_byte = 0, index = 0;
 
   for (index = 0; index < 16; index++) {
@@ -86,12 +85,9 @@ void put_header_in_file(int *header, FILE *zip_file) {
       ch = set_bit(ch, count_byte);
     }
 
-    //count_byte--;
     count_byte++;
 
-    //if (count_byte < 0) {
     if (count_byte == 8) {
-      //count_byte = 7;
       count_byte = 0;
       fwrite(&ch, sizeof(unsigned char), 1, zip_file);
       ch = 0;
@@ -187,10 +183,6 @@ void zip_file(){
   rewind(zip_file);
 
   put_header_in_file(header, zip_file);
-  
-  /*for(i = 0; i < 16; i++){
-    printf(" [%d] ", header[i]);
-  }*/
 
   printf("\n %s created!\n", zip_file_name);
   printf("\n");

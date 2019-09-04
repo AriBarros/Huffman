@@ -94,20 +94,6 @@ void print_tree_in_file(Huffman* tree,int* size_tree, FILE* file){
     }
 }
 
-int maior(int a, int b){
-    if(a > b)
-        return a;
-    else
-        return b;
-}
-
-int altura(Huffman *pRaiz){
-   if((pRaiz == NULL) || (pRaiz->left == NULL && pRaiz->right == NULL))
-       return 0;
-   else
-       return 1 + maior(altura(pRaiz->left), altura(pRaiz->right));
-}
-
 int tree_size(Huffman *tree, int size) {
   if (tree != NULL) {
     if (tree->left == NULL && tree->right == NULL &&

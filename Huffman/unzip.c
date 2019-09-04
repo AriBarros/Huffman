@@ -9,9 +9,7 @@ int checking_file(char *name){
   int a, b = 0;
 
   for(a = strlen(name) - 5; a < strlen(name); a++, b++){
-    if(name[a]!= str[b]){
-      printf("[%c] ", name[a]);
-      printf("[%c] ", str[b]);
+    if(name[a] != str[b]){
       return 0;
     }
   }
@@ -75,12 +73,12 @@ void unzip_file(){
   zip_file = fopen(zip_file_name, "rb");
 
   while((!try_open_file(zip_file)) || (!checking_file(zip_file_name))){
-    printf("Error opening file!\n\n");
+    printf("\nError opening file!\n\n");
 
     if(!checking_file(zip_file_name)){
-      printf(" The file you entered does not have a .huff extension.\nEnter a valid file.\n\n");
+      printf("The file you entered does not have a .huff extension.\nEnter a valid file.\n\n");
     }
-    printf(" Enter the name of the compressed file.\n\n Like this: filename.huff\n > ");
+    printf("Enter the name of the compressed file.\n\nLike this: filename.huff\n > ");
        scanf("%[^\n]s", zip_file_name);
        getchar();
 
@@ -103,21 +101,8 @@ void unzip_file(){
 
   fread(&size_trash, sizeof(unsigned char), 1, zip_file);
   fread(&size_tree, sizeof(unsigned char), 1, zip_file);
-  //printf("\n%d\n", size_trash);
 
-  /*for (int i = 0; i <= 2; i++)
-  {
-    if(is_bit_i_set(size_trash, i))
-    {
-      ch_help = set_bit(ch_help,i);
-    }
-  }*/
-  
-  ch_help = size_trash >> 5;
-
-  //printf("\ntrash1: %d\n", ch_help);
-  trash_temp = ch_help;
-  //printf("\ntrash2: %d\n", trash_temp);
+  trash_temp = size_trash >> 5;
 
   Huffman* tree = (Huffman*)create_tree_node();
   tree = (Huffman*)comeback_tree(zip_file, tree);
